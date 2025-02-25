@@ -57,7 +57,9 @@ class SignalRequest(BaseModel):
 
 @app.post("/signal")
 async def receive_signal(signal_request: SignalRequest):
-    
+    print("--------------------------------")
+    print("signal_request: ", signal_request)
+    print("--------------------------------")
     try:
         parsed_data = signal_request.parse_signal()
         logger.info(f"[{datetime.now()}] Received signal endpoint called with data: {parsed_data}")
